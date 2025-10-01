@@ -164,7 +164,7 @@ router.get('/checklogin', authTokenHandler, async (req, res, next) => {
         message: req.message,
         userId: req.userId
     })
-});
+})
 
 
 module.exports = router;
