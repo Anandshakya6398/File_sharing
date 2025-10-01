@@ -120,22 +120,51 @@ router.post('/signup', async (req, res, next) => {
 
 router.post('/login', async (req, res, next) => {
     try {
-          const {email, password} = req.body;
-            if(!email || !password){
-                return responseFunction(res, 400, "Email and password are required", null, false);
-            }
-            const user = await User.findOne({ email: email });
-            if(!user){
-                return responseFunction(res, 400, "Invalid email or password", null, false);
-            }
-            const isMatch = await bcrypt.compare(password, user.password);
-            if(!isMatch){
-                return responseFunction(res, 400, "Invalid email or password", null, false);
-            }
-            
+        const { email, password } = req.body;
+        if (!email || !password) {
+            return responseFunction(res, 400, "Email and password are required", null, false);
+        }
+        const user = await User.findOne({ email: email });
+        if (!user) {
+            return responseFunction(res, 400, "Invalid email or password", null, false);
+        }
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return responseFunction(res, 400, "Invalid email or password", null, false);
+        }
+        const authToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '10m' });
+        const refreshToken = jwt.sign({ userId: user._id }, process.env.JWT_REFRESH_SECRET, { expiresIn: '7d' });
+        res.cookie('authToken', authToken, {
+            sameSite: 'none',
+            secure: true,
+            httpOnly: true,
+            maxAge: 10 * 60 * 1000 // 10 minutes
+        });
+        res.cookie('refreshToken', refreshToken, {
+            sameSite: 'none',
+            secure: true,
+            httpOnly: true,
+            maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+        });
+        return responseFunction(res, 200, "Login successful", {
+            authToken: authToken,
+            refreshToken: refreshToken
+        }, true);
     }
-}
+    catch (error) {
+        console.error("Error in /login:", error);
+        return responseFunction(res, 500, "Internal Server Error", null, false);
+    }
 
+});
+
+router.get('/checklogin', authTokenHandler, async (req, res, next) => {
+    res.json({
+        ok: req.ok,
+        message: req.message,
+        userId: req.userId
+    })
+});
 
 
 module.exports = router;
