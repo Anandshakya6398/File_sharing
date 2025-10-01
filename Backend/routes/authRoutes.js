@@ -175,6 +175,19 @@ router.post('/logout', authTokenHandler, async (req, res, next) => {
     })
 })
 
+router.get('/getuser', authTokenHandler, async (req, res, next) => {
+    try {
+        const user = await User.findById(req.userId);
+        if (!user) {
+            return responseFunction(res, 400, 'User not found', null, false);
+        }
+        return responseFunction(res, 200, 'User found', user, true);
+
+    }
+    catch (err) {
+        next(err);
+    }
+})
 
 
 module.exports = router;
