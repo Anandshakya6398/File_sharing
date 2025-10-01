@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const verificationSchema = new mongoose.Schema({
     email: {required:true , type:String},
     code: {required:true , type:String}, //OTP 
-},{timestamps: true});
+},{timestamps: true}); // 
 
 verificationSchema.pre('save', async function(next){
     //convert otp string to hash format
