@@ -37,7 +37,7 @@ async function mailer(recieveremail, code) {
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '/public');
+        cb(null, 'public');
     },
     filename: (req, file, cb) => {
         let fileType = file.mimetype.split('/')[1];
@@ -51,7 +51,7 @@ const upload = multer({ storage: storage });
 const fileUploadFunction = (req, res, next) => {
     upload.single('clientFile')(req, res, (err) => {
         if (err) {
-            return responseFunction(res, 400, "File upload failed", false, null);
+            return responseFunction(res, 400, "File upload failed", null, false);
         }
         next();
     });
@@ -85,9 +85,10 @@ router.post('/sendotp', async (req, res) => {
 
 });
 
-router.post('/signup', async (req, res, next) => {
+router.post('/signup', fileUploadFunction, async (req, res, next) => {
+    console.log("File uploaded:", req.file);
     try {
-        const { name, email, password, otp, profilePic } = req.body;
+        const { name, email, password, otp } = req.body;
         let user = await User.findOne({ email: email });
         if (user) {
             return responseFunction(res, 400, "User already exists", null, false);
@@ -101,11 +102,13 @@ router.post('/signup', async (req, res, next) => {
             return responseFunction(res, 400, "Invalid OTP", null, false);
         }
 
+        let profilePicPath = req.file ? req.file.path : null;
+
         user = new User({
             name: name,
             email: email,
             password: password,
-            profilePic: profilePic
+            profilePic: profilePicPath
         });
         await user.save();
         await Verification.deleteOne({ email: email });
@@ -117,6 +120,11 @@ router.post('/signup', async (req, res, next) => {
     }
 
 });
+
+// router.post('/updatePassword', async (req, res, next) => {
+
+// });
+    
 
 router.post('/login', async (req, res, next) => {
     try {
@@ -159,6 +167,7 @@ router.post('/login', async (req, res, next) => {
 });
 
 router.get('/checklogin', authTokenHandler, async (req, res, next) => {
+    console.log("Check Login Route:", req.ok, req.message, req.userId);
     res.json({
         ok: req.ok,
         message: req.message,

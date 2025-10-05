@@ -34,7 +34,7 @@ app.use(
 
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use('/public', express.static('public'));
+app.use('public', express.static('public'));
 
 app.use((req, res, next) => {
     req.io = io;
