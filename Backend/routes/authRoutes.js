@@ -101,7 +101,6 @@ router.post('/signup', fileUploadFunction, async (req, res, next) => {
         if (!isMatch) {
             return responseFunction(res, 400, "Invalid OTP", null, false);
         }
-
         let profilePicPath = req.file ? req.file.path : null;
 
         user = new User({
