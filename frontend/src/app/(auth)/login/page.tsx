@@ -9,15 +9,7 @@ const Page = () => {
     password: "",
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Login Data:", formData);
-    // You can handle your login logic here
-  };
 
   return (
     <>
@@ -30,7 +22,7 @@ const Page = () => {
         </h2>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form className="space-y-5">
           {/* Email */}
           <div>
             <label className="block mb-1 text-sm font-medium">Email</label>
@@ -39,8 +31,7 @@ const Page = () => {
               name="email"
               placeholder="Enter your email"
               value={formData.email}
-              onChange={handleChange}
-              required
+             required
               className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-200"
             />
           </div>
@@ -53,7 +44,6 @@ const Page = () => {
               name="password"
               placeholder="Enter your password"
               value={formData.password}
-              onChange={handleChange}
               required
               className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-200"
             />
