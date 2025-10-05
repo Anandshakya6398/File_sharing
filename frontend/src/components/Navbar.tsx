@@ -7,12 +7,14 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-gradient-to-r  to-purple-900 text-white shadow-lg">
+    <nav className="bg-gradient-to-r  to-purple-950 text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0 text-2xl font-bold tracking-wide">
+            <Link href="/" >
             Share<span className="text-yellow-300 cursor-pointer">Everywhere</span>
+            </Link>
           </div>
 
           {/* Desktop Menu */}
@@ -28,13 +30,15 @@ const Navbar = () => {
             ) : (
               <>
                 <Link href="/login" className=" px-4 py-2 rounded-lg">
-                  <button className="hover:text-yellow-400 transition font-bold cursor-pointer hover:scale-105">Login</button>
+                  <button className="hover:text-yellow-400 transition font-bold cursor-pointer hover:scale-105 bg-gray-800  rounded-4xl ">Login</button>
                 </Link>
                 <div className="relative inline-block p-[2px] rounded-lg overflow-hidden">
                   <div className="absolute inset-0 rounded-lg border-gradient"></div>
-                  <button className="relative bg-white text-black px-5 py-2 font-semibold rounded-lg transition-all duration-300 hover:bg-gray-100 cursor-pointer hover:scale-105">
-                    Sign Up
-                  </button>
+                  <Link href="/signup">
+                    <button className="relative  text-black bg-amber-400 hover:bg-amber-500 px-4 py-2 font-semibold rounded-4xl transition-all duration-300 cursor-pointer hover:scale-105">
+                      Sign Up
+                    </button>
+                  </Link>
                 </div>              
               </>
             )}

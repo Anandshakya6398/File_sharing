@@ -1,5 +1,6 @@
 'use client';
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const Page = () => {
@@ -60,12 +61,12 @@ const Page = () => {
 
           {/* Forgot Password */}
           <div className="text-right">
-            <a
-              href="#"
+            <Link
+              href="resetPassword"
               className="text-sm text-blue-300 hover:underline hover:text-blue-400"
             >
               Forgot Password?
-            </a>
+            </Link>
           </div>
 
           {/* Animated Login Button */}
@@ -83,9 +84,9 @@ const Page = () => {
         {/* Signup link */}
         <p className="text-center text-sm mt-5 text-gray-200">
           Don’t have an account?{" "}
-          <a href="#" className="text-blue-300 hover:underline">
+          <Link href="/signup" className="text-blue-300 hover:underline">
             Sign Up
-          </a>
+          </Link>
         </p>
       </div>
 
