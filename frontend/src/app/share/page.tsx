@@ -39,7 +39,7 @@ const FileSharePage = () => {
   // };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-purple-950 to-gray-950 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-700 to-gray-950 p-4">
       <div className="bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-8 w-full max-w-md text-white">
         <h2 className="text-3xl text-amber-400 font-bold text-center mb-6">
           Share a File 📤

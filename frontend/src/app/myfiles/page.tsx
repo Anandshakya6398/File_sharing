@@ -27,11 +27,11 @@ const page = () => {
   return (
     <>
     <Navbar/>
-    <div>
+    <div className='pt-20 pb-10 min-h-screen bg-gradient-to-b from-gray-900 to-gray-800'>
       {
         tempFiles.map((file, index) => {
           return (
-            <div key={index} className="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-2 mx-6 px-4  text-white my-4 ">
+            <div key={index} className="bg-black backdrop-blur-md rounded-2xl shadow-xl p-2 mx-6 px-4 my-4 text-white  ">
               <h3 className="text-xl font-semibold mb-2">{file.filename}</h3>
               <p className="text-sm text-gray-300 mb-4">Date & Time: {file.sharedAt.toLocaleString()}</p>
             </div>
