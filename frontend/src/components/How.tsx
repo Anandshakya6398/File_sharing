@@ -31,7 +31,7 @@ const How = () => {
     ];
 
     return (
-        <section className="py-12 bg-gradient-to-r from-indigo-100 via-purple-100 to-blue-100">
+        <section className="py-12 bg-gradient-to-r from-indigo-300 via-purple-100 to-blue-300">
             <div className="max-w-3xl mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                     How It Works
