@@ -1,7 +1,9 @@
 'use client';
+import Navbar from "@/components/Navbar";
+import Link from "next/link";
 import React, { useState } from "react";
 
-const Signup = () => {
+const Page = () => {
   // const [formData, setFormData] = useState({
   //   name: "",
   //   email: "",
@@ -10,11 +12,12 @@ const Signup = () => {
   // });
 
  
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-700 via-indigo-800 to-blue-900 p-4">
-      <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl shadow-lg w-full max-w-md text-white">
-        <h2 className="text-3xl font-bold mb-6 text-center">Signup</h2>
+    <>
+    <Navbar/>
+    <div className=" flex items-center justify-center  p-4">
+      <div className="bg-white/10 backdrop-blur-lg p-3 rounded-2xl shadow-lg w-full max-w-md text-white">
+        <h2 className="text-3xl text-yellow-400 font-bold text-center mb-6">Signup</h2>
 
         <form  className="space-y-5">
           {/* Name */}
@@ -26,7 +29,7 @@ const Signup = () => {
               placeholder="Enter your name"
               required
               className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-lg placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-400"
-            />
+              />
           </div>
 
           {/* Email + Send OTP */}
@@ -70,7 +73,7 @@ const Signup = () => {
               placeholder="Enter password"
               required
               className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-lg placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-400"
-            />
+              />
           </div>
 
           {/* Signup Button */}
@@ -85,13 +88,14 @@ const Signup = () => {
         {/* Already have account */}
         <p className="text-center text-sm mt-5 text-gray-200">
           Already have an account?{" "}
-          <a href="#" className="text-blue-300 hover:underline">
+          <Link href="/login" className="text-blue-300 hover:underline">
             Login
-          </a>
+          </Link>
         </p>
       </div>
     </div>
+              </>
   );
 };
 
-export default Signup;
+export default Page;
