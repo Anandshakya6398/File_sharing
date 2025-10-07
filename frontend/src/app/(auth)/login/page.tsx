@@ -14,11 +14,11 @@ const Page = () => {
   return (
     <>
     <Navbar/>
-    <div className=" flex py-13.5 items-center justify-center bg-gradient-to-br from-blue-50 via-purple-950 to-indigo-950 p-4">
+    <div className=" flex py-13.5 items-center justify-center p-4">
       <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-8 w-full max-w-md text-white">
         {/* Title */}
         <h2 className="text-3xl text-yellow-400 font-bold text-center mb-6">
-          Welcome Back 👋
+        Login👋
         </h2>
 
         {/* Form */}
@@ -30,7 +30,6 @@ const Page = () => {
               type="email"
               name="email"
               placeholder="Enter your email"
-              value={formData.email}
              required
               className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-200"
             />
@@ -43,7 +42,6 @@ const Page = () => {
               type="password"
               name="password"
               placeholder="Enter your password"
-              value={formData.password}
               required
               className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-200"
             />
@@ -61,10 +59,10 @@ const Page = () => {
 
           {/* Animated Login Button */}
           <div className="relative inline-block w-full p-[2px] rounded-lg overflow-hidden group">
-            <div className="absolute inset-0 rounded-lg bg-[conic-gradient(from_0deg,_#ff00ff,_#6d28d9,_#3b82f6,_#ff00ff)] animate-rotate-slow"></div>
+            {/* <div className="absolute inset-0 rounded-lg bg-[conic-gradient(from_0deg,_#ff00ff,_#6d28d9,_#3b82f6,_#ff00ff)] animate-rotate-slow"></div> */}
             <button
               type="submit"
-              className="relative w-full bg-white text-gray-900 py-2 font-semibold rounded-lg transition-all duration-300 hover:bg-gray-100"
+               className="w-full py-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg font-semibold hover:opacity-90 transition-all"
             >
               Login
             </button>
