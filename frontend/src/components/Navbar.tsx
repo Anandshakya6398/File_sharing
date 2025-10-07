@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(); // Replace with actual auth logic
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // Replace with actual auth logic
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -21,8 +21,8 @@ const Navbar = () => {
           <div className="hidden sm:flex space-x-6">
             {isLoggedIn ? (
               <>
-                <button className="hover:text-yellow-300 transition cursor-pointer">My Files</button>
-                <button className="hover:text-yellow-300 transition cursor-pointer">Contact Us</button>
+                <Link href="/myfiles" className="hover:text-yellow-300 transition cursor-pointer">My Files</Link>
+                <Link href="/contact" className="hover:text-yellow-300 transition cursor-pointer">Contact Us</Link>
                 <button className="bg-yellow-400 text-black px-4 py-1 rounded-lg hover:bg-yellow-500 transition cursor-pointer font-bold">
                   Logout
                 </button>
