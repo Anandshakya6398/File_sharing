@@ -108,15 +108,15 @@ return (
     <>
       <Navbar />
 
-      <div className="w-full bg-gradient-to-r from-indigo-100 via-purple-100 to-blue-100 px-6 md:px-[10%] py-20 select-none">
+      <div className="w-full bg-gradient-to-t from-indigo-950 to-blue-950 px-6 md:px-[10%] py-20 select-none">
         <h2
           data-aos="zoom-in-up"
-          className="text-center mb-10 text-3xl sm:text-4xl md:text-4xl font-Cedarville_Cursive text-gray-900"
+          className="text-center mb-10 text-3xl sm:text-4xl md:text-4xl font-Cedarville_Cursive text-amber-500"
         >
           Contact With Me
         </h2>
 
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-10 bg-slate-100 rounded-2xl shadow-md p-6 sm:p-10">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-10 bg-slate-300 rounded-2xl shadow-md p-6 sm:p-10">
           {/* Left Side */}
           <div className="flex flex-col justify-center bg-white md:bg-transparent p-6 rounded-lg shadow-sm md:shadow-none">
             <p
@@ -179,7 +179,7 @@ return (
             <button
               data-aos="zoom-out-up"
               type="submit"
-              className="w-full sm:w-auto py-3 px-8 flex items-center justify-center gap-2 bg-black text-white rounded-full hover:bg-black/80 duration-500 mx-auto"
+              className="w-full sm:w-auto py-3 px-8 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full hover:bg-black/80 duration-500 mx-auto"
             >
               Submit Now
             </button>
