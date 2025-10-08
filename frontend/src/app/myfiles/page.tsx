@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import React from 'react'
 
@@ -27,7 +28,7 @@ const page = () => {
   return (
     <>
     <Navbar/>
-    <div className='pt-20 pb-10 min-h-screen bg-gradient-to-b from-gray-900 to-gray-800'>
+    <div className='pt-20 pb-10 min-h-screen bg-gradient-to-t from-indigo-950 to-blue-950'>
       {
         tempFiles.map((file, index) => {
           return (
@@ -40,6 +41,7 @@ const page = () => {
         
       }
     </div>
+    <Footer/>
         </>
   )
 }
